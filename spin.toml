@@ -1,0 +1,14 @@
+spin_manifest_version = 2
+
+[application]
+name = "arse"
+version = "0.0.1"
+
+[[trigger.http]]
+route = "/..."
+component = "my"
+
+[component.my]
+source = "bin/Release/net10.0/wasi-wasm/publish/testaroonie.wasm"
+key_value_stores = ["default"]
+build.command = "dotnet build -c Release"

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <RuntimeIdentifier>wasi-wasm</RuntimeIdentifier>
+
+        <UseAppHost>false</UseAppHost>
+        <PublishTrimmed>true</PublishTrimmed>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <SelfContained>true</SelfContained>
+        
+        <!-- Need kebab case -->
+        <TargetName>testaroonie</TargetName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!--<PackageReference Include="BytecodeAlliance.Componentize.DotNet.Wasm.SDK" Version="0.7.0-preview*" />-->
+        <!-- <ProjectReference Include="..\componentize-dotnet\src\WasmComponent.Sdk\WasmComponent.Sdk.csproj" /> -->
+        <PackageReference Include="BytecodeAlliance.Componentize.DotNet.Wasm.SDK" Version="0.7.0-preview00010" />
+        <PackageReference Include="runtime.$(NETCoreSdkPortableRuntimeIdentifier).Microsoft.DotNet.ILCompiler.LLVM" Version="10.0.0-alpha.1.25162.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Wit Remove="**\*.wit" />
+      <Wit Include="wit" World="http-trigger" />
+    </ItemGroup>
+ 
+</Project>
